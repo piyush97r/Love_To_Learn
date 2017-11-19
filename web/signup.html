@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<html>
+    <head>
+        <title>Sign Up</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="signup.css">
+    </head>
+    <body>
+        <script>
+            function fun(){
+                p = document.getElementById("Password");
+                cp = document.getElementById("Cpassword");
+                console.log(p);
+                console.log(cp);
+                if(p !== cp){
+                    alert("Passwords Donot Match");
+                }
+            }
+        </script>
+  <div class="container">
+    <div class="backbox">
+      <div class="loginMsg">
+        <div class="textcontent">
+          <p class="title">Already Have an Account??</p>
+          <p>Login To Continue</p>
+          <a href="login.html"><button id="switch1" style="cursor: pointer">Back To Login</button></a>
+        </div>
+      </div>
+      
+    </div>
+    <!-- backbox -->
+    <div class="frontbox">
+      <div class="login">
+        <h2>Sign Up</h2>
+<form method="POST" action="signup.jsp">
+        <div class="inputbox">
+           <input type="text"  name="Name" placeholder="  Login Name" required="required" />
+           <input type="Number" Name ="Age" placeholder="  Age"/>
+           <select name="Gender">
+               <option value="MALE">MALE</option>
+               <option value="FEMALE">FEMALE</option>
+               <option value="OTHERS">OTHERS</option>
+            </select>
+            <select name="Occupation">
+               <option value="STUDENT">STUDENT</option>
+               <option value="BUSINESSMAN">BUSINESSMAN</option>
+               <option value="DOCTOR">DOCTOR</option>
+               <option value="ENGINEER">ENGINEER</option>
+               <option value="OTHERS">OTHERS</option>
+            </select>
+            <p>
+            </p>
+            <input type="text" name="Email" placeholder="  EMAIL" required="required" />
+            <input type="password" name="Password" placeholder="  PASSWORD" required="required" id="Password"/>
+            <input type="password" name="Confirm_Password" placeholder=" CONFIRM PASSWORD" required="required" id="Cpassword"/>
+            
+        </div>
+    <button value="submit">Sign Up</button>
+      </div>
+</form>
+      </div>
+    </div>
+    <!-- frontbox -->
+  </div>
+</body>
+
+</html>
+
+
