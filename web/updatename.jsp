@@ -18,20 +18,20 @@
             Connection con = null;
             PreparedStatement pst = null;
             ResultSet rs = null;
-            try{
+            try {
                 Class.forName("org.apache.derby.jdbc.ClientDriver");
-                con = DriverManager.getConnection("jdbc:derby://localhost:1527/Love_To_Learn","Mohammed_Numan","mohammed");
-                String sql = "Update Users set Display_Name='"+Display_Name+"' where User_Id="+Id;
+                con = DriverManager.getConnection("jdbc:derby://localhost:1527/Love_To_Learn", "Mohammed_Numan", "mohammed");
+                String sql = "Update Users set Display_Name='" + Display_Name + "' where User_Id=" + Id;
                 pst = con.prepareStatement(sql);
                 int x = pst.executeUpdate();
-                if(x==1){
+                if (x == 1) {
                     response.sendRedirect("ExcessIntrest.jsp");
                 }
-            }catch(Exception e){
+            } catch (Exception e) {
                 e.printStackTrace();
             }
-                
-       %>
-       
+
+        %>
+
     </body>
 </html>

@@ -14,32 +14,32 @@
     </head>
     <body>
         <main>
-        <div class="blog-page">
-          <div class="page-content">
-            <section class="page-body">
-                <center><h1>You have selected a name which is Already been Used By other User</h1>
-              <hr>
-              <h2>Choose a Different Name As your Login Name.</h2></center>
-              
-              <h3>You could use Something like yourname123</h3>
-              <p>GO TO:</p>
+            <div class="blog-page">
+                <div class="page-content">
+                    <section class="page-body">
+                        <center><h1>You have selected a name which is Already been Used By other User</h1>
+                            <hr>
+                            <h2>Choose a Different Name As your Login Name.</h2></center>
 
-              <ul>
-                  <li><a href="signup.html" style="text-decoration: none"><span>Signup.</span></a></li>
-              </ul>
-              <hr>
+                        <h3>You could use Something like yourname123</h3>
+                        <p>GO TO:</p>
 
-              <h2>Admins's Note</h2>
+                        <ul>
+                            <li><a href="signup.html" style="text-decoration: none"><span>Signup.</span></a></li>
+                        </ul>
+                        <hr>
 
-              <p>Sorry for This.</p>
+                        <h2>Admins's Note</h2>
 
-              <p>This name is only for The Login purpose.</p>
-              
-              <p>We will ask the Name Which will be Displayed to other Users Later.</p>
+                        <p>Sorry for This.</p>
 
-            </section>
-          </div>
-        </div>
-  </main>
+                        <p>This name is only for The Login purpose.</p>
+
+                        <p>We will ask the Name Which will be Displayed to other Users Later.</p>
+
+                    </section>
+                </div>
+            </div>
+        </main>
     </body>
 </html>

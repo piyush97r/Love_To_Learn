@@ -14,17 +14,17 @@
     </head>
     <body>
         <section class="tv-error-404-tm" style="background-image: url(images/books.jpg); background-position:top center; background-size:cover; height:800px;">
-        <div class="tv-dark-background-tm"></div>
-        <div class="container tv-error-content-tm">
-        <div class="col-md-12">
-        <h1>You did Not select 3 Topics.</h1>
-        <h3>OH!...Please Select At-least 3 Topics You Like....</h3>
-        <div class="tv-error-links-tm">
-        <a href="intrest.jsp" class="btn">Intrest Page</a> 
-        
-      </div>
-    </div>
-  </div>
-</section>
+            <div class="tv-dark-background-tm"></div>
+            <div class="container tv-error-content-tm">
+                <div class="col-md-12">
+                    <h1>You did Not select 3 Topics.</h1>
+                    <h3>OH!...Please Select At-least 3 Topics You Like....</h3>
+                    <div class="tv-error-links-tm">
+                        <a href="intrest.jsp" class="btn">Intrest Page</a> 
+
+                    </div>
+                </div>
+            </div>
+        </section>
     </body>
 </html>

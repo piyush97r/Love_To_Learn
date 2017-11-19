@@ -19,36 +19,35 @@
             Connection con = null;
             PreparedStatement pst = null;
             ResultSet rs = null;
-            try{
+            try {
                 Class.forName("org.apache.derby.jdbc.ClientDriver");
-                con = DriverManager.getConnection("jdbc:derby://localhost:1527/Love_To_Learn","Mohammed_Numan","mohammed");
-                String sql = "Select * from Intrest where User_Id="+Id ;
+                con = DriverManager.getConnection("jdbc:derby://localhost:1527/Love_To_Learn", "Mohammed_Numan", "mohammed");
+                String sql = "Select * from Intrest where User_Id=" + Id;
                 pst = con.prepareStatement(sql);
                 rs = pst.executeQuery();
                 rs.next();
                 String res;
                 boolean flag = false;
-                for(int i=2 ; i<=7 ; i++){
+                for (int i = 2; i <= 7; i++) {
                     res = rs.getString(i);
-                    if (res.equals("None")){
-                    sql = "Update INTREST set Intrest"+(i-1)+"='"+Intrest+"' where USER_ID="+Id ;
-                    pst = con.prepareStatement(sql);
-                    int x = pst.executeUpdate();
-                    if(x==1){
-                        flag=true;
-                        break;
-                           }
+                    if (res.equals("None")) {
+                        sql = "Update INTREST set Intrest" + (i - 1) + "='" + Intrest + "' where USER_ID=" + Id;
+                        pst = con.prepareStatement(sql);
+                        int x = pst.executeUpdate();
+                        if (x == 1) {
+                            flag = true;
+                            break;
+                        }
                     }
                 }
-                if(flag){
+                if (flag) {
                     response.sendRedirect("intrest.jsp");
-                }
-                else{
+                } else {
                     response.sendRedirect("ExcessIntrest.jsp");
                 }
-            }catch(Exception e){
+            } catch (Exception e) {
                 e.printStackTrace();
             }
-            %>
+        %>
     </body>
 </html>
