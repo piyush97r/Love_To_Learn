@@ -18,7 +18,7 @@
         <div class="container tv-error-content-tm">
         <div class="col-md-12">
         <h1>You did Not select 3 Topics.</h1>
-        <h3>Common Select At-least 3 Topics You Like....</h3>
+        <h3>OH!...Please Select At-least 3 Topics You Like....</h3>
         <div class="tv-error-links-tm">
         <a href="intrest.jsp" class="btn">Intrest Page</a> 
         
