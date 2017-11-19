@@ -29,8 +29,11 @@
                 rs = pst.executeQuery();
                 rs.next();
                 String DName = rs.getString("Display_Name");
-                if(DName != null){
-                    out.println("You Are Authenticated.....!");
+                if(rs != null){
+                    session.removeAttribute("User_Id");
+                    session.setAttribute("UserId",rs.getString("User_Id"));
+                    session.setAttribute("DisplayName",DName);
+                    response.sendRedirect("Profile_Home.jsp");
                 }
             }
             catch(SQLException e)
@@ -41,4 +44,3 @@
     </body>
     
 </html>
-
