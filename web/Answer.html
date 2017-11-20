@@ -1,0 +1,25 @@
+<div class="vue-wrapper">
+  <div id="vue">
+    <div class="search-area">
+      <h1>Questions and Answers</h1>
+      <div class="input-wrapper">
+        <i class="fa fa-search"></i>
+        <input v-model="searchString" type="text" placeholder="Have a question? Search for answers with keywords"/>
+      </div>
+      <button>Reset</button>
+    </div>
+
+    <div class="question" >
+      <div class="votes">
+        <div class="upvote" @click="vote('up', question)"></div>
+        <div class="number-of-votes">8</div>
+        <div class="downvote"></div>
+      </div>
+
+      <div class="question-and-answer">
+        <h2>Question.</h2>
+        <p><textarea name="Text1" cols="40" rows="5"></textarea></p>
+      </div>
+    </div>
+  </div>
+</div>

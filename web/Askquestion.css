@@ -24,7 +24,7 @@ h1, h2, p {
     margin-bottom: 1em;
     width: calc(100% - 5.275em);
 }
-.vue-wrapper #vue .input-wrapper input {
+.vue-wrapper #vue .input-wrapper input{
     width: 100%;
     padding: 0.5em;
     padding-left: 2em;
@@ -165,4 +165,16 @@ h1, h2, p {
     display: inline-block;
     vertical-align: top;
     width: calc(100% - 5em);
+}
+
+textarea{
+    width: 100%;
+    padding: 0.5em;
+    padding-left: 2em;
+    border: 2px solid rgba(198, 198, 198, 0.9);
+    font-size: 1em;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    border-radius: 4px;
 }

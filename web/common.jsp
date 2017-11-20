@@ -1,3 +1,10 @@
+<%-- 
+    Document   : common
+    Created on : Nov 20, 2017, 4:06:49 PM
+    Author     : Suhail.Siddiq
+--%>
+
+<%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <!--
 To change this license header, choose License Headers in Project Properties.
@@ -91,12 +98,14 @@ and open the template in the editor.
     <body>
         <div class="nav-wrap">   
             <ul class="group" id="fancy-nav">
+                <li style="position: fixed; top: 25px; left: 20px; color: orange"><b> UserName : <%= session.getAttribute("DisplayName")%></b></li>
                 <li class="current_page_item_two"><a href="Profile_Home.jsp">Home</a></li>
                 <li><a href="Askquestion.jsp">Ask Questions</a></li>
                 <li><a href="ViewUsers.jsp">View Users</a></li>
-                <li><a href="ChangeProfile.jsp">Profile</a></li>
+                <li><a href="Profile.jsp">Profile</a></li>
                 <li><a href="#">Settings</a></li>
             </ul> 
         </div>
     </body>
 </html>
+
