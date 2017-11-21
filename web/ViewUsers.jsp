@@ -14,7 +14,7 @@
     </head>
     <body>
         <br />
-    <center><h1>Users Based on Their Ranks</h1></center>
+    <center><h1 style="color: orange">Users Based on Their Ranks</h1></center>
     <br/>
     <table border="2px solid black"   width="100%" style="text-align: center">
         <thead style="font-family: italics;color: white;font-size: 25px;background-color: lightblue">

@@ -13,6 +13,7 @@
         <jsp:include page="common.jsp"/>
     </head>
     <body>
-        <h1>You can Change Your profile Here.</h1>
-    </body>
+        <br />
+    <center><h1 style="color:orange">You can track The Questions You Asked Here.</h1></center>
+</body>
 </html>
