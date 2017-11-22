@@ -11,7 +11,7 @@
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <link rel="stylesheet" href="Askquestion.css">
         <jsp:include page="common.jsp"/>
-        <title>Department?</title>
+        <title>Department</title>
     </head>
     <body>
         <br />
@@ -25,10 +25,11 @@
                         <i class="fa fa-search"></i>
                         <select v-model="searchString" name="Department">
                             <option>Select Your Department</option>
-                            <option>Computer</option>
+                            <option>Computer Science</option>
                             <option>Mechanical</option>
-                            <option>Doctor</option>
+                            <option>Medical</option>
                             <option>General</option>
+                            <option>Electrical</option>
                         </select>
                     </div>
                     <br />

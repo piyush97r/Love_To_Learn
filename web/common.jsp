@@ -103,7 +103,8 @@ and open the template in the editor.
                 <li><a href="AskDepartment.jsp">Ask Questions</a></li>
                 <li><a href="ViewUsers.jsp">View Users</a></li>
                 <li><a href="Profile.jsp">Profile</a></li>
-                <li><a href="#">Settings</a></li>
+                <li><a href="Settings.jsp">Settings</a></li>
+                <li><a href="index.html">LogOut</a></li>
             </ul> 
         </div>
     </body>

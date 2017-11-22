@@ -33,17 +33,7 @@
 
 
         <div class="vue-wrapper">
-            <div id="vue">
-                
-<!--                <div class="search-area">
-                    <h1>Questions and Answers</h1>
-                    <div class="input-wrapper">
-                        <i class="fa fa-search"></i>
-                        <input v-model="searchString" type="text" placeholder="Have a question? Search for answers with keywords"/>
-                    </div>
-                    <button>Reset</button>
-                </div>-->
-
+            <div id="vue">                
                 <div class="question" >
                     <div class="votes">
                         <div class="upvote"></div>
