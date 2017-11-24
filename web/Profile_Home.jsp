@@ -32,7 +32,7 @@
 
 
 
-        <div class="vue-wrapper">
+<!--        <div class="vue-wrapper">
             <div id="vue">                
                 <div class="question" >
                     <div class="votes">
@@ -50,6 +50,42 @@
                     </div>
                 </div>
             </div>
+        </div>-->
+
+<%
+            Connection con = null;
+            PreparedStatement pst = null;
+            ResultSet rs = null;
+            String Title;
+            try {
+                Class.forName("org.apache.derby.jdbc.ClientDriver");
+                con = DriverManager.getConnection("jdbc:derby://localhost:1527/Love_To_Learn", "Mohammed_Numan", "mohammed");
+                String sql = "Select Title,Question_Id from Questions Order by Question_Date";
+                pst = con.prepareStatement(sql);
+                rs = pst.executeQuery();
+
+        %>
+        
+        <%while (rs.next()) {
+                            Title = rs.getString(1);
+                            String id = rs.getString(2);
+                    %>
+    <div class="vue-wrapper">
+        <div id="vue">                
+            <div class="question" >
+                <div class="votes">
+                     <a href = "Details.jsp?Id=<%= id%>" style="text-decoration: none; font-size: 25px"><%= Title%></a>  
+                </div>
+            </div>
         </div>
+    </div>
+        <%
+    }
+}catch(Exception e){
+    System.out.println(e);
+}
+    %>
+
+
     </body>
 </html>

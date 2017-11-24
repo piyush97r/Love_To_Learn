@@ -73,8 +73,8 @@ and open the template in the editor.
                 /* background: #900;  */
                 background-color: #038680;
                 z-index: 100; 
-                -moz-border-radius-topleft: : 5px;
-                -moz-border-radius-topright: : 5px;
+                -moz-border-radius-topleft:  5px;
+                -moz-border-radius-topright:  5px;
                 -webkit-border-top-left-radius: 5px;
                 -webkit-border-top-right-radius: 5px;
                 border-radius: 5px 5px 0 0;
@@ -98,7 +98,7 @@ and open the template in the editor.
     <body>
         <div class="nav-wrap">   
             <ul class="group" id="fancy-nav">
-                <li style="position: fixed; top: 25px; left: 20px; color: orange"><b> UserName : <%= session.getAttribute("DisplayName")%></b></li>
+<!--                <li style="position: fixed; top: 25px; left: 20px; color: orange"><b> UserName : <%= session.getAttribute("DisplayName")%></b></li>-->
                 <li class="current_page_item_two"><a href="Profile_Home.jsp">Home</a></li>
                 <li><a href="AskDepartment.jsp">Ask Questions</a></li>
                 <li><a href="ViewUsers.jsp">View Users</a></li>

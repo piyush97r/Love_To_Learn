@@ -35,7 +35,7 @@
                 }
                 Integer a = Integer.parseInt(id);
                 a++;
-                sql = "Insert into Questions values(?,?,?,?,?,?)";
+                sql = "Insert into Questions values(?,?,?,?,?,?,?)";
                 pst = con.prepareStatement(sql);
                 pst.setInt(1, a);
                 pst.setString(2, Title);
@@ -43,6 +43,7 @@
                 pst.setString(4, Department);
                 pst.setString(5, Domain);
                 pst.setString(6, User);
+                pst.setTimestamp(7, new Timestamp(System.currentTimeMillis()));
                 int x = pst.executeUpdate();
                 if(x == 1){
                     response.sendRedirect("Profile.jsp");

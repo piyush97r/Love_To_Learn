@@ -20,7 +20,7 @@
                     <h1>Fields You Might Be Intrested In <%= Names%></h1>
                 </div>
                 <div>
-                    <h2>.  Pick Atleast THREE....And Max TEN</h2>
+                    <h2>.  Pick Atleast THREE....</h2>
                 </div>
             </div>
 
@@ -333,11 +333,37 @@
 
             <h1 style="text-align: center"><b>Done?.....You can login now......!</b></h1><br>
         </div>
-        <!--<form method="POST" action="login.html">-->
-        <div class="col one">
-            <a href="ExcessIntrest.jsp" class="btn btn-linkedin icon-only">Done</a>	
-        </div>
-        <!--</form>-->
 
-    </body>
+        <%
+            Connection con = null;
+            PreparedStatement pst = null;
+            ResultSet rs = null;
+            try {
+                Class.forName("org.apache.derby.jdbc.ClientDriver");
+                con = DriverManager.getConnection("jdbc:derby://localhost:1527/Love_To_Learn", "Mohammed_Numan", "mohammed");
+                String sql = "Select Intrest from Intrests where User_Id = (Select User_Id from Users where User_Name = '" + Names + "')";
+                pst = con.prepareStatement(sql) ;
+                rs = pst.executeQuery();
+                rs.next();
+                //System.out.println("Hello");
+        %>
+    <center><h3>Intrests Selected</h3></center>
+    <center>
+    <table style="border: 2px">
+        <tbody>
+            <%
+                do {
+            %><tr> <%= rs.getString(1)%> |</tr><%
+                        } while (rs.next());
+                    } catch (Exception e) {
+                        
+                        }%>
+        </tbody>
+    </table>
+    </center>
+    <div class="col one">
+        <a href="ExcessIntrest.jsp" class="btn btn-linkedin icon-only">Done</a>	
+    </div>
+
+</body>
 </html>

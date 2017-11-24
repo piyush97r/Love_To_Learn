@@ -20,21 +20,26 @@
             try {
                 Class.forName("org.apache.derby.jdbc.ClientDriver");
                 con = DriverManager.getConnection("jdbc:derby://localhost:1527/Love_To_Learn", "Mohammed_Numan", "mohammed");
-                String sql = "Select * from Intrest where User_Id=" + Id;
+                String sql = "Select Count(User_Id) from Intrests where User_Id=" + Id +" Group By User_Id";
                 pst = con.prepareStatement(sql);
                 rs = pst.executeQuery();
                 rs.next();
-                String res;
-                int i = 2;
-                for (i = 2; i <= 7; i++) {
-                    res = rs.getString(i);
-                    if (res.equals("None")) {
-                        break;
-                    }
-                }
-                if (i == 4) {
+                Integer res = Integer.parseInt(rs.getString(1));
+                if(res < 3){
                     response.sendRedirect("lessIntrest.jsp");
                 }
+//                String res;
+//                int i = 2;
+//                for (i = 2; i <= 7; i++) {
+//                    res = rs.getString(i);
+//                    if (res.equals("None")) {
+//                        break;
+//                    }
+//                }
+//                if (i == 4) {
+//                    response.sendRedirect("lessIntrest.jsp");
+//                }
+                
             } catch (Exception e) {
                 e.printStackTrace();
             }
