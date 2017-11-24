@@ -17,8 +17,8 @@
     <center><h1>You can change your Profile settings Here.....!</h1></center>
     <br />
     <center>
-    <li style="position: relative; right: 33px">Add More Intrests?</li><br />
-    <li>Change Your Display name?</li><br />
+        <li style="position: relative; right: 33px">Add More Intrests?</li><br />
+        <li>Change Your Display name?</li><br />
     <li style="position: relative; right: 15px">Change Your Password?</li><br />
     <li style="position: relative; right: 20px">Change Your Email Id?</li>
     </center>
