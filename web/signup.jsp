@@ -89,10 +89,10 @@
                         pst.setString(7, Email);
                         pst.setString(8, Name);
                         int x = pst.executeUpdate();
-                        sql = "Insert into Intrest(USER_ID) values(?)";
-                        pst = con.prepareStatement(sql);
-                        pst.setInt(1, a);
-                        x = pst.executeUpdate();
+//                        sql = "Insert into Intrests(USER_ID) values(?)";
+//                        pst = con.prepareStatement(sql);
+//                        pst.setInt(1, a);
+//                        x = pst.executeUpdate();
                         session.setAttribute("userId", a);
                         session.setAttribute("userName", Name);
                         response.sendRedirect("intrest.jsp");

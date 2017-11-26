@@ -47,7 +47,7 @@
 //                }
 
 
-                  String sql = "Insert into Intrests values(?, ?)";
+                  String sql = "Insert into Intrests(User_Id, Intrest) values(?, ?)";
                   pst = con.prepareStatement(sql);
                   pst.setInt(1,Id);
                   pst.setString(2,Intrest);

@@ -5,10 +5,10 @@
   font-family: "Open Sans";
 }
 
-$background-gray: rgba(198, 198, 198, 0.1);
-$accent-gray: rgba(198, 198, 198, 0.9);
-$button-gray: rgba(198, 198, 198, 1);
-$dark-gray: rgba(0,0,0,0.75);
+$background-gray : rgba(198, 198, 198, 0.1);
+$accent-gray : rgba(198, 198, 198, 0.9);
+$button-gray : rgba(198, 198, 198, 1);
+$dark-gray : rgba(0,0,0,0.75);
 $box-shadow: 0 2px 2px 0 rgba(0,0,0,0.25);
 $small-box-shadow: 0 1px 1px 0 rgba(0,0,0,0.15);
 $medium-box-shadow: $box-shadow;

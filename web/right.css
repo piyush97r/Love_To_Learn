@@ -217,7 +217,7 @@ body {
     font-weight: 900;
     letter-spacing: 4px;
     font-size: 16px;
-    transition: ;
+/*    transition: ;*/
     padding-bottom: 38px;
     padding-left: 10px;
     padding-right: 10px;
@@ -631,7 +631,5 @@ body {
 
 #heading
 {
-    padding: left: 50px;
-
-
+    padding-left: 50px;
 }
