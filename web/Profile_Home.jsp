@@ -74,7 +74,7 @@
         <div id="vue">                
             <div class="question" >
                 <div class="votes">
-                     <a href = "Details.jsp?Id=<%= id%>" style="text-decoration: none; font-size: 25px"><%= Title%></a>  
+                     <a href = "Details.jsp?Id=<%= id%>" style="text-decoration: none; font-size: 15px"><%= Title%></a>  
                 </div>
             </div>
         </div>

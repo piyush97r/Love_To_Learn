@@ -117,36 +117,58 @@
         </style>
     </head>
     <body>
+        
+        
+        <%
+            Connection con = null;
+            PreparedStatement pst = null;
+            ResultSet rs = null;
+            String Name = request.getParameter("Name");
+            String sql = "Select * from Users where User_Id = "+session.getAttribute("UserId").toString();
+            try {
+                Class.forName("org.apache.derby.jdbc.ClientDriver");
+                con = DriverManager.getConnection("jdbc:derby://localhost:1527/Love_To_Learn", "Mohammed_Numan", "mohammed");
+                pst = con.prepareStatement(sql);
+                rs = pst.executeQuery();
+                rs.next();
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+        %>
+        
+        
+        
+        
+        
         <br />
     <center><h1>You can change your Profile settings Here.....!</h1></center>
     <br />
     <center>
-        <!--        <a href="index.html"><li style="position: relative; right: 33px">Add More Intrests?</li><br /></a>
-                <a href="index.html"><li>Change Your Display name?</li><br /></a>
-                <a href="index.html"><li style="position: relative; right: 15px">Change Your Password?</li><br /></a>
-                <a href="index.html"><li style="position: relative; right: 20px">Change Your Email Id?</li><a/>-->
-
 
         <h1 style="position: relative; right: 400px">Change Your Email</h1>
-        <form class="form-wrapper" style="position: relative; right: 400px; bottom: 90px">
-            <input type="text" id="search" placeholder="New Email" required>
+        <form class="form-wrapper" style="position: relative; right: 400px; bottom: 90px" method="POST" action="Change_Email.jsp">
+            <input type="text" id="search" placeholder="New_Email" name="New_Email" required>
             <input type="submit" value="Change" id="submit">
+            <br />
+            <h4>Existing Email : <%= rs.getString("Email") %></h4>
         </form>
 
-        <h1 style="position: relative; left: 350px; bottom: 305px">Change The Display Name</h1>
-        <form class="form-wrapper" style="position: relative; left: 350px; bottom: 395px">
-            <input type="text" id="search" placeholder="New Name" required>
+        <h1 style="position: relative; left: 350px; bottom: 325px">Change The Display Name</h1>
+        <form class="form-wrapper" style="position: relative; left: 350px; bottom: 420px" method="POST" action="Change_Name.jsp">
+            <input type="text" id="search" placeholder="New_Name" name="New_Name" required>
             <input type="submit" value="Change" id="submit">
+            <br />
+            <h4>Existing Name : <%= rs.getString("Display_Name") %></h4>
         </form>
         
         
-        <form class="form-wrapper" style="position: relative; bottom: 400px">
+        <form class="form-wrapper" style="position: relative; bottom: 400px" method="POST" action="Change_Password.jsp">
             <h1>Change Your Password?</h1>
-            <input type="text" id="search" placeholder="New Password" required style="position: relative; left : 50px">
+            <input type="password" id="search" placeholder="New_Password" required style="position: relative; left : 50px" name="Password">
         
         <h1>Confirm Password</h1>
         
-            <input type="text" id="search" placeholder="Confirm Password" required>
+            <input type="password" id="search" placeholder="Confirm_Password" required name="Confirm_Password">
             <input type="submit" value="Change" id="submit">
         </form>
         

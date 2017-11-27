@@ -1,8 +1,3 @@
-<%-- 
-    Document   : AskDepartment
-    Created on : Nov 21, 2017, 6:31:36 AM
-    Author     : Suhail.Siddiq
---%>
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>

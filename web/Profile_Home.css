@@ -16,7 +16,7 @@ h1, h2, p {
     margin: 0 auto;
     width: 100%;
 /*    max-width: 1024px;*/
-    max-width: 1300px;
+    max-width: 1100px;
     text-align: left;
 }
 .vue-wrapper #vue .input-wrapper {
