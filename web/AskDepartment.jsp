@@ -1,4 +1,4 @@
-
+<%@page import="java.sql.*"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
@@ -12,6 +12,13 @@
         <br />
     <center><h1 style="color: orange">Select The Department Of Your Question Here.</h1></center>
     <br />
+    <%
+        try{
+    session.getAttribute("UserId").toString();
+        }catch(Exception e){
+             response.sendRedirect("Pleaselogin.jsp");
+        }
+    %>
     <form method="POST" action="Askquestion.jsp">
         <div class="vue-wrapper">
             <div id="vue">

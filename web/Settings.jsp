@@ -117,29 +117,26 @@
         </style>
     </head>
     <body>
-        
-        
+
+
         <%
             Connection con = null;
             PreparedStatement pst = null;
             ResultSet rs = null;
             String Name = request.getParameter("Name");
-            String sql = "Select * from Users where User_Id = "+session.getAttribute("UserId").toString();
             try {
+                String sql = "Select * from Users where User_Id = " + session.getAttribute("UserId").toString();
                 Class.forName("org.apache.derby.jdbc.ClientDriver");
                 con = DriverManager.getConnection("jdbc:derby://localhost:1527/Love_To_Learn", "Mohammed_Numan", "mohammed");
                 pst = con.prepareStatement(sql);
                 rs = pst.executeQuery();
                 rs.next();
-            } catch (Exception e) {
-                e.printStackTrace();
-            }
         %>
-        
-        
-        
-        
-        
+
+
+
+
+
         <br />
     <center><h1>You can change your Profile settings Here.....!</h1></center>
     <br />
@@ -150,7 +147,7 @@
             <input type="text" id="search" placeholder="New_Email" name="New_Email" required>
             <input type="submit" value="Change" id="submit">
             <br />
-            <h4>Existing Email : <%= rs.getString("Email") %></h4>
+            <h4>Existing Email : <%= rs.getString("Email")%></h4>
         </form>
 
         <h1 style="position: relative; left: 350px; bottom: 325px">Change The Display Name</h1>
@@ -158,19 +155,24 @@
             <input type="text" id="search" placeholder="New_Name" name="New_Name" required>
             <input type="submit" value="Change" id="submit">
             <br />
-            <h4>Existing Name : <%= rs.getString("Display_Name") %></h4>
+            <h4>Existing Name : <%= rs.getString("Display_Name")%></h4>
         </form>
-        
-        
+
+
         <form class="form-wrapper" style="position: relative; bottom: 400px" method="POST" action="Change_Password.jsp">
             <h1>Change Your Password?</h1>
             <input type="password" id="search" placeholder="New_Password" required style="position: relative; left : 50px" name="Password">
-        
-        <h1>Confirm Password</h1>
-        
+
+            <h1>Confirm Password</h1>
+
             <input type="password" id="search" placeholder="Confirm_Password" required name="Confirm_Password">
             <input type="submit" value="Change" id="submit">
         </form>
-        
-</body>
+        <%} catch (NullPointerException e) {
+                response.sendRedirect("Pleaselogin.jsp");
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+        %>
+    </body>
 </html>

@@ -45,7 +45,11 @@
     <%
                         }%>
     <%
-        } catch (Exception e) {
+        } 
+catch (NullPointerException e){
+    response.sendRedirect("Pleaselogin.jsp");
+}
+catch (Exception e) {
             e.printStackTrace();
         }
     %>

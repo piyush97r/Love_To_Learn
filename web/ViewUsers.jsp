@@ -31,6 +31,7 @@
             Connection con = null;
             PreparedStatement pst = null;
             try {
+                session.getAttribute("UserId").toString();
                 Class.forName("org.apache.derby.jdbc.ClientDriver");
                 con = DriverManager.getConnection("jdbc:derby://localhost:1527/Love_To_Learn", "Mohammed_Numan", "mohammed");
                 String sql = "Select User_Id, Display_Name, User_Age, Gender, Occupation, Email from Users";
@@ -48,6 +49,8 @@
         </tr> 
         <%
                 }
+            } catch (NullPointerException e) {
+                response.sendRedirect("Pleaselogin.jsp");
             } catch (Exception e) {
                 out.println(e);
             }
