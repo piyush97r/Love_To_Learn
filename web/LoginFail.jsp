@@ -10,6 +10,7 @@
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <title>Login Fail</title>
+        <link rel="icon" type="image/png" href="images/fav.png" />
         <link rel="stylesheet" href="Excessintrest.css" />
     </head>
     <body>

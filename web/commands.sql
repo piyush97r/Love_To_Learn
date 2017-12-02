@@ -36,5 +36,5 @@ insert into Department(Dept_Name, Domain1, Domain2, Domain3, Domain4, Domain5, D
 insert into Department(Dept_Name, Domain1, Domain2, Domain3, Domain4, Domain5) values('Mechanical','Robotics', 'AI', 'Automation', 'Construction', 'Machine Learning');
 insert into Department(Dept_Name, Domain1, Domain2, Domain3) values('Medical','General', 'Health Advise', 'Others');
 insert into Department(Dept_Name, Domain1, Domain2) values('Medical','General', 'Health Advise', 'Others');
-insert into Department(Dept_Name, Domain1, Domain2, Domain3, Domain4) values('General', 'Physics', 'Chemistry','Mathematics', 'Social Science');
 insert into Department values('Computer Science', 'C', 'C++','Java', 'Java Script', 'Python', 'Kotlin', 'Coffee Script', 'Django Framework', 'Scala', 'Html');
+insert into Department(Dept_Name, Domain1, Domain2, Domain3, Domain4, Domain5, Domain6, Domain7) values('Mathematics','Algebra', 'ArithMatics', 'Geometry', 'Integration', 'Lenear Algerbra', 'Differenciation', 'Matrix');

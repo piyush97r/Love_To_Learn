@@ -16,6 +16,7 @@
         <link rel="stylesheet" href="Askquestion.css">
         <link rel="stylesheet" href="Excessintrest.css" >
         <title>Ask Question.</title>
+        <link rel="icon" type="image/png" href="images/fav.png" />
     </head>
     <body>
         <%

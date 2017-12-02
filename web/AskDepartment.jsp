@@ -4,9 +4,10 @@
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        <title>Department</title>
+        <link rel="icon" type="image/png" href="images/fav.png" />
         <link rel="stylesheet" href="Askquestion.css">
         <jsp:include page="common.jsp"/>
-        <title>Department</title>
     </head>
     <body>
         <br />
@@ -32,6 +33,7 @@
                             <option>Medical</option>
                             <option>General</option>
                             <option>Electrical</option>
+                            <option>Mathematics</option>
                         </select>
                     </div>
                     <br />

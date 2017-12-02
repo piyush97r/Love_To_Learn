@@ -5,6 +5,7 @@
         <meta http-equiv='X-UA-Compatible' content='IE=Edge'>
         <meta charset='utf-8'>
         <title>Please Login</title>
+        <link rel="icon" type="image/png" href="images/fav.png" />
         <base href='/'>
 
         <meta name='viewport' content='width=device-width, initial-scale=1'>
