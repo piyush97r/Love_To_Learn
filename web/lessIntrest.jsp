@@ -1,8 +1,3 @@
-<%-- 
-    Document   : lessIntrest
-    Created on : Nov 18, 2017, 5:36:12 PM
-    Author     : Suhail.Siddiq
---%>
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>

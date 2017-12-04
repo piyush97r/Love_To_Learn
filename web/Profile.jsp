@@ -38,7 +38,7 @@
         <div id="vue">                
             <div class="question" >
                 <div class="votes">
-                     <a href = "Details.jsp?Id=<%= id%>" style="text-decoration: none"><%= Title%></a>          
+                     <a href = "ProfileDisplay.jsp?Id=<%= id%>" style="text-decoration: none"><%= Title%></a>          
                 </div>
             </div>
         </div>

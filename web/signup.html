@@ -11,17 +11,24 @@ and open the template in the editor.
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <link rel="stylesheet" href="signup.css">
+        <script src="min.js"></script>
     </head>
     <body>
         <script>
-            function fun() {
-                p = document.getElementById("Password");
-                cp = document.getElementById("Cpassword");
-                console.log(p);
-                console.log(cp);
-                if (p !== cp) {
-                    alert("Passwords Donot Match");
-                }
+            $(document).ready(function () {
+                $("#Cpassword").keyup(validate);
+                $("#Password").keyup(validate);
+            });
+            function validate() {
+                var password1 = $("#Password").val();
+                var password2 = $("#Cpassword").val();
+                if (password1 == password2) {
+                    $('#Button').prop('disabled', false);
+                    $("#span").text("");
+                } else {
+                    $('#Button').prop('disabled', true);
+                    $("#span").text("Password's Donot Match....!!");
+                }           
             }
         </script>
         <div class="container">
@@ -61,17 +68,16 @@ and open the template in the editor.
                             <input type="text" name="Email" placeholder="  EMAIL" required="required" />
                             <input type="password" name="Password" placeholder="  PASSWORD" required="required" id="Password"/>
                             <input type="password" name="Confirm_Password" placeholder=" CONFIRM PASSWORD" required="required" id="Cpassword"/>
-
+                            <div id = "span" style="color : red"></div>
+                            <br />
                         </div>
-                        <button value="submit">Sign Up</button>
-                </div>
+                        <button value="submit" id="Button">Sign Up</button>
                 </form>
             </div>
         </div>
         <!-- frontbox -->
     </div>
 </body>
-
 </html>
 
 

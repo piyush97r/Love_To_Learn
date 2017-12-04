@@ -95,7 +95,7 @@
             } while (rs2.next());
         }
     %>
-    <form method="POST" action="Qcomments.jsp">
+    <form method="POST" action="ProfileComments.jsp">
         <textarea rows="1" cols="25" name="Comment" placeholder="Comment?" style="max-width : 500px; position: relative; left : 800px" required="required"></textarea>
         <div class="vue-wrapper">
             <div id="vue">
@@ -160,11 +160,11 @@
             System.out.println(e);
         }
     %>
-    <br />
+<!--    <br />
     <h4 style="position: relative; left: 170px; font-size: 30px; text-decoration: underline; color: goldenrod">Give Your Answer Here..</h4>
     <br />
-    <br />
-    <form method="POST" action="Answer.jsp">
+    <br />-->
+<!--    <form method="POST" action="Answer.jsp">
         <div class="vue-wrapper">
             <div id="vue">
                 <div class="search-area">
@@ -175,6 +175,6 @@
                 <center><button type="submit">Answer</button></center>
             </div>
         </div>
-    </form>
+    </form>-->
 </body>
 </html>

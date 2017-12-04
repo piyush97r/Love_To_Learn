@@ -8,13 +8,6 @@
         <link rel="stylesheet" href="intrest.css" />
     </head>
     <body>
-        <script type="text/javascript">
-            function fun() {
-                alert("The password and Confirm Password Donot Match");
-            }
-        </script>
-        <!-- Checking if The UserName is Valid-->
-
         <%  Connection con = null;
             PreparedStatement pst = null;
             ResultSet rs = null;
@@ -52,54 +45,34 @@
                     String Email = request.getParameter("Email");
                     String cPassword = request.getParameter("Confirm_Password");
                     //String Dn = "None";
-                    boolean flag = false;
-
-                    if (!Password.equals(cPassword)) {
-        %>
-        <script type="text/javascript">
-            fun();
-        </script>
-        <%
-                        flag = true;
+                    con = DriverManager.getConnection("jdbc:derby://localhost:1527/Love_To_Learn", "Mohammed_Numan", "mohammed");
+                    sql = "Select MAX(USER_ID) from Users";
+                    pst = con.prepareStatement(sql);
+                    rs = pst.executeQuery();
+                    rs.next();
+                    String id = rs.getString(1);
+                    if (id == null) {
+                        id = "10000";
                     }
-
-                    if (flag) {
-                        response.sendRedirect("signup.html");
-                    } else {
-
-                        con = DriverManager.getConnection("jdbc:derby://localhost:1527/Love_To_Learn", "Mohammed_Numan", "mohammed");
-                        sql = "Select MAX(USER_ID) from Users";
-                        pst = con.prepareStatement(sql);
-                        rs = pst.executeQuery();
-                        rs.next();
-                        String id = rs.getString(1);
-                        if (id == null) {
-                            id = "10000";
-                        }
-                        Integer a = Integer.parseInt(id);
-                        a++;
-                        sql = "INSERT INTO Users VALUES(?,?,?,?,?,?,?,?)";
-                        pst = con.prepareStatement(sql);
-                        pst.setInt(1, a);
-                        pst.setString(2, Name);
-                        pst.setString(3, Age);
-                        pst.setString(4, Gender);
-                        pst.setString(5, Occupation);
-                        pst.setString(6, Password);
-                        pst.setString(7, Email);
-                        pst.setString(8, Name);
-                        int x = pst.executeUpdate();
-//                        sql = "Insert into Intrests(USER_ID) values(?)";
-//                        pst = con.prepareStatement(sql);
-//                        pst.setInt(1, a);
-//                        x = pst.executeUpdate();
-                        session.setAttribute("userId", a);
-                        session.setAttribute("userName", Name);
-                        response.sendRedirect("intrest.jsp");
-                    }
+                    Integer a = Integer.parseInt(id);
+                    a++;
+                    sql = "INSERT INTO Users VALUES(?,?,?,?,?,?,?,?)";
+                    pst = con.prepareStatement(sql);
+                    pst.setInt(1, a);
+                    pst.setString(2, Name);
+                    pst.setString(3, Age);
+                    pst.setString(4, Gender);
+                    pst.setString(5, Occupation);
+                    pst.setString(6, Password);
+                    pst.setString(7, Email);
+                    pst.setString(8, Name);
+                    int x = pst.executeUpdate();
+                    session.setAttribute("userId", a);
+                    session.setAttribute("userName", Name);
+                    response.sendRedirect("intrest.jsp");
                 } catch (Exception e) {
                     e.printStackTrace();
-                                }
-                            }%>
+                }
+            }%>
     </body>
 </html>
