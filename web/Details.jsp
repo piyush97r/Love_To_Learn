@@ -34,7 +34,6 @@
 
             function getInfo() {
                 if (request.readyState === 4) {
-                    console.log(request.responseText.charAt(0))
                     if(request.responseText.charAt(0) === "S")
                     {
                         alert("You Cannot Vote Your Own Answer...!");
