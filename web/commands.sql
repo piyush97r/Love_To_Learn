@@ -6,6 +6,8 @@ create table Answers(Answer_Id Integer Primary Key, Question_Id Integer, User_Id
 
 create table Department(Dept_Name varchar(20) Primary Key, Domain1 varchar(20) Default 'None', Domain2 varchar(20) Default 'None', Domain3 varchar(30) Default 'None', Domain4 varchar(20) Default 'None', Domain5 varchar(20) Default 'None', Domain6 varchar(20) Default 'None', Domain7 varchar(20) Default 'None', Domain8 varchar(20) Default 'None', Domain9 varchar(20) Default 'None', Domain10 varchar(20) Default 'None');
 
+create table votes (Answer_Id Integer, Voter_Id Integer, vote Integer, Foreign Key (Answer_Id) references Answers(Answer_Id), Foreign Key(Voter_Id) references Users(User_Id));
+
 create table USERS
 (
 	USER_ID INTEGER not null primary key,
