@@ -34,11 +34,10 @@
 
             function getInfo() {
                 if (request.readyState === 4) {
-                    if(request.responseText.charAt(0) === "S")
+                    if (request.responseText.charAt(0) === "S")
                     {
                         alert("You Cannot Vote Your Own Answer...!");
-                    }
-                    else if(request.responseText.charAt(0) === "N")
+                    } else if (request.responseText.charAt(0) === "N")
                     {
                         alert("You Cannot Vote The Same Answer More Than Once...!");
                     } else {
@@ -49,6 +48,38 @@
                     }
                 }
 
+            }
+
+            function sendAccept(id, qid)
+            {
+                Id = id;
+                var url = "Accept.jsp?Id=" + id + "& Qid = " + qid;
+                if (window.XMLHttpRequest) {
+                    request = new XMLHttpRequest();
+                } else if (window.ActiveXObject) {
+                    request = new ActiveXObject("Microsoft.XMLHTTP");
+                }
+
+                try {
+                    request.onreadystatechange = getInfo1;
+                    request.open("POST", url, true);
+                    request.send();
+                } catch (e) {
+                    alert("Unable to connect to server");
+                }
+            }
+
+            function getInfo1() {
+                if (request.readyState === 4) {
+                    console.log(request.responseText);
+                    if (request.responseText.charAt(0) === "N")
+                    {
+                        alert("One Question cannot have more Than One Accepted Answers...!\nBut If you think The Answer is good you can vote them");
+                    } else {
+//                        var val = +document.getElementById('voting' + Id).getAttribute('data-value');
+                        document.getElementById("Accept" + Id).innerHTML = "Accepted!";
+                    }
+                }
             }
         </script>
     </head>
@@ -64,11 +95,13 @@
                 Class.forName("org.apache.derby.jdbc.ClientDriver");
                 con = DriverManager.getConnection("jdbc:derby://localhost:1527/Love_To_Learn", "Mohammed_Numan", "mohammed");
                 String Id = request.getParameter("Id");
-                String sql = "Select Title,Question,Display_Name,Question_Date from Questions q,Users u where u.User_Id=q.User_Id And Question_Id=" + Id;
+                session.setAttribute("Question_Id", Id);
+                String sql = "Select Title,Question,Display_Name,Question_Date,Domain from Questions q,Users u where u.User_Id=q.User_Id And Question_Id=" + Id;
                 pst = con.prepareStatement(sql);
                 rs = pst.executeQuery();
                 rs.next();
                 session.setAttribute("Question_Id", Id);
+                session.setAttribute("Domain",rs.getString("Domain"));
         %>
         <br />
     <center><h1 style="color:goldenrod;  text-decoration: underline"><%= rs.getString(1)%></h1></center>
@@ -95,7 +128,7 @@
         }
     %>
     <form method="POST" action="ProfileComments.jsp">
-        <textarea rows="1" cols="25" name="Comment" placeholder="Comment?" style="max-width : 500px; position: relative; left : 800px" required="required"></textarea>
+        <textarea rows="1" cols="25" name="Comment" placeholder="Comment?" style="max-width : 500px; position: relative; left : 800px; cursor : none" required="required"></textarea>
         <div class="vue-wrapper">
             <div id="vue">
                 <button type="Submit" style="position : relative; left : 850px">Comment</button>
@@ -122,8 +155,27 @@
             } else {
                 a = "0";
             }
+            String Done;
+            PreparedStatement accept = con.prepareStatement("Select * from Questions where Question_Id = " + Id + " and Accepted_Answer = " + rs1.getString(4));
+            ResultSet acc = accept.executeQuery();
+            if (acc.next()) {
+                Done = "Accepted";
+            } else {
+            Done = "Accept?";
+        }
     %>  
-
+    <button style="position: relative; left : 10px ; top : 75px ; width : 150px; height : 30px; cursor: pointer" onclick="sendAccept(<%= rs1.getString(4)%>)" id="Accept<%= rs1.getString(4)%>"><%= Done%></button>
+    <script>
+       var e = document.getElementById("Accept"+<%= rs1.getString(4)%>);
+       if('<%= Done %>'==='Accepted')
+       {
+           e.style.color = "red";
+           e.style.fontSize = "20px";
+           e.style.textDecoration = "underline";
+       }
+       else
+           e.style.color = "green";
+    </script>
     <div class="vue-wrapper">
         <div id="vue">
             <div class="question">
@@ -159,21 +211,21 @@
             System.out.println(e);
         }
     %>
-<!--    <br />
-    <h4 style="position: relative; left: 170px; font-size: 30px; text-decoration: underline; color: goldenrod">Give Your Answer Here..</h4>
-    <br />
-    <br />-->
-<!--    <form method="POST" action="Answer.jsp">
-        <div class="vue-wrapper">
-            <div id="vue">
-                <div class="search-area">
-                    <div class="input-wrapper">
-                        <textarea v-model="searchString" type="text" placeholder="Answer Here." rows="15" cols="120" name="Answer" required="required"></textarea>
+    <!--    <br />
+        <h4 style="position: relative; left: 170px; font-size: 30px; text-decoration: underline; color: goldenrod">Give Your Answer Here..</h4>
+        <br />
+        <br />-->
+    <!--    <form method="POST" action="Answer.jsp">
+            <div class="vue-wrapper">
+                <div id="vue">
+                    <div class="search-area">
+                        <div class="input-wrapper">
+                            <textarea v-model="searchString" type="text" placeholder="Answer Here." rows="15" cols="120" name="Answer" required="required"></textarea>
+                        </div>
                     </div>
+                    <center><button type="submit">Answer</button></center>
                 </div>
-                <center><button type="submit">Answer</button></center>
             </div>
-        </div>
-    </form>-->
+        </form>-->
 </body>
 </html>

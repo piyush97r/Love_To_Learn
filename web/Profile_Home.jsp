@@ -34,7 +34,7 @@
             String Title;
             Class.forName("org.apache.derby.jdbc.ClientDriver");
             con = DriverManager.getConnection("jdbc:derby://localhost:1527/Love_To_Learn", "Mohammed_Numan", "mohammed");
-            String sql = "Select Title,Question_Id from Questions where Question_Id not in (Select Question_Id from Questions where User_Id = "+Id+")Order by Question_Id DESC";
+            String sql = "Select Title,Question_Id from Questions where Question_Id not in (Select Question_Id from Questions where User_Id = "+Id+") AND Domain IN(Select Intrest from Intrests where user_Id="+session.getAttribute("UserId")+") Order by Question_Id DESC";
             pst = con.prepareStatement(sql);
             rs = pst.executeQuery();
 

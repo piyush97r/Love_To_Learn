@@ -161,7 +161,7 @@
                     <br />
                     IF you Didnt The session Might Have Expired...Please Try to Login Again....!
                 </p>
-                <a class='home-link' href="Love_To_Learn-master/login.html">Login</a>
+                <a class='home-link' href="Love_To_Learn/login.html">Login</a>
             </div>
         </div>
     </body>
