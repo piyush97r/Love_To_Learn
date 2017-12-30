@@ -43,26 +43,7 @@
                         pst.setInt(3, 1);
                         pst.setString(4,session.getAttribute("Domain").toString());
                         int x = pst.executeUpdate();
-                        
-//                        String Qid = session.getAttribute("Question_Id").toString();
-//                        sql = "Select User_Id from Answers where Answer_Id="+id ;
-//                        pst = con.prepareStatement(sql);
-//                        ResultSet u = pst.executeQuery();
-//                        u.next();
-//                        sql = "Select Domain from Questions where Question_Id = "+Qid ;
-//                        pst = con.prepareStatement(sql);
-//                        ResultSet v = pst.executeQuery(); 
-//                        v.next();
-//                        CallableStatement cst = con.prepareCall("Call Final (?,?)");
-//                        cst.setInt(1,Integer.parseInt(u.getString(1)));
-//                        cst.setString(2,v.getString(1));
-//                        boolean done = cst.execute();
-//                        if(done){
-//                            System.out.println("Done Bro");
-//                        }
-//                        else{
-//                            System.out.println("Sorry Bro");
-//                        }
+      
                     }
                 }
             } catch (NullPointerException e) {

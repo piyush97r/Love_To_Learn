@@ -83,12 +83,14 @@
                     }
                     else {
                         var answer = $("#answer").val();
-                        var btn = document.createElement("DIV");
-                        var t = document.createTextNode(answer);
-                        btn.appendChild(t);
-                        document.getElementById("append").appendChild();
+                        document.getElementById("unique").innerHTML=answer;
+                        $("#unique").css("visibility","visible")
                     }
                 }
+            }
+            
+            function alerts(){
+                alert("You Cannot Vote Your Own Answer...!");
             }
         </script>
     </head>
@@ -213,11 +215,31 @@
             System.out.println(e);
         }
     %>
+    <div id="last" style="visibility: hidden">
+        <div class="vue-wrapper">
+        <div id="vue">
+            <div class="question">
+                <div class="votes">
+                    <div class="upvote" onclick="alerts()"></div>
+                    <div class="number-of-votes">0</div>
+                    <div class="downvote" onclick="alerts()"></div>
+                </div>
+                <div class="question-and-answer">
+                    <div id="answer">
+                        <h2 style="font-size: 18px" id="unique"></h2>
+                        <h6 style="position: relative; left: 800px">By : <%=session.getAttribute("UserId") %></h6>
+                        <h6 style="position: relative; left: 800px">On : Today</h6>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    </div>
     <br />
     <h4 style="position: relative; left: 170px; font-size: 30px; text-decoration: underline; color: goldenrod">Give Your Answer Here..</h4>
     <br />
     <br />
-    <form method="POST">
+<!--    <form>-->
         <div class="vue-wrapper">
             <div id="vue">
                 <div class="search-area">
@@ -228,6 +250,6 @@
                 <center><button type="submit" onclick="insert()">Answer</button></center>
             </div>
         </div>
-    </form>
+<!--    </form>-->
 </body>
 </html>

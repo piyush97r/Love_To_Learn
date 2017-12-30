@@ -42,9 +42,8 @@
                 int x = pst.executeUpdate();
                 
                 if(x == 1){
-//                    response.sendRedirect("Details.jsp?Id="+session.getAttribute("Question_Id").toString()+"");
                     response.setContentType("text/plain");
-                    out.println("Done");
+                    response.getWriter().write("Done");
                 }
                 else{
                     response.getWriter().write("Not Done");
