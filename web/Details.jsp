@@ -34,11 +34,10 @@
 
             function getInfo() {
                 if (request.readyState === 4) {
-                    if(request.responseText.charAt(0) === "S")
+                    if (request.responseText.charAt(0) === "S")
                     {
                         alert("You Cannot Vote Your Own Answer...!");
-                    }
-                    else if(request.responseText.charAt(0) === "N")
+                    } else if (request.responseText.charAt(0) === "N")
                     {
                         alert("You Cannot Vote The Same Answer More Than Once...!");
                     } else {
@@ -50,13 +49,13 @@
                 }
 
             }
-            
-            function comment(){
-                $("#comment").css("visibility","visible");
-                $("#a").css("visibility","hidden");
+
+            function comment() {
+                $("#comment").css("visibility", "visible");
+                $("#a").css("visibility", "hidden");
             }
-            
-            function insert(){
+
+            function insert() {
                 var answer = $("#answer").val();
                 console.log(answer);
                 var url = "Answer.jsp?Answer=" + answer + "";
@@ -74,22 +73,21 @@
                     alert("Unable to connect to server");
                 }
             }
-            
-            function updateAnswer(){
+
+            function updateAnswer() {
                 if (request.readyState === 4) {
-                    if(request.responseText.charAt(0) === "N")
+                    if (request.responseText.charAt(0) === "N")
                     {
                         alert("Not Inserted");
-                    }
-                    else {
+                    } else {
                         var answer = $("#answer").val();
-                        document.getElementById("unique").innerHTML=answer;
-                        $("#unique").css("visibility","visible")
+                        document.getElementById("unique").innerHTML = answer;
+                        $("#unique").css("visibility", "visible")
                     }
                 }
             }
-            
-            function alerts(){
+
+            function alerts() {
                 alert("You Cannot Vote Your Own Answer...!");
             }
         </script>
@@ -111,7 +109,7 @@
                 rs = pst.executeQuery();
                 rs.next();
                 session.setAttribute("Question_Id", Id);
-                session.setAttribute("Domain",rs.getString("Domain"));
+                session.setAttribute("Domain", rs.getString("Domain"));
         %>
         <br />
     <center><h1 style="color:goldenrod;  text-decoration: underline"><%= rs.getString(1)%></h1></center>
@@ -159,44 +157,45 @@
     %>
     <h2 style="position: relative; color: goldenrod; left :170px; text-decoration: underline">Answers Given..</h2>
     <div id="append">
-    <%
-        do {
-            String a;
-            PreparedStatement v = con.prepareStatement("Select Count(vote) from votes where Answer_Id=" + rs1.getString(4));
-            ResultSet vote = v.executeQuery();
-            if (vote.next()) {
-                a = vote.getString(1);
-            } else {
-                a = "0";
-            }
-            
-            String Done;
-            PreparedStatement accept = con.prepareStatement("Select * from Questions where Question_Id = "+Id+" and Accepted_Answer = "+ rs1.getString(4));
-            ResultSet acc = accept.executeQuery();
-            if(acc.next())
-                Done = "Accepted" ;
-            else
-                Done = "" ;
-    %>  
-    <div style="text-decoration: underline ;position: relative; left : 35px ; top : 75px ; width : 150px; height : 30px;color: red;  cursor: pointer; font-size: 22px" id="Accept<%= rs1.getString(4) %>"> <%= Done%> </div>
-    <div class="vue-wrapper">
-        <div id="vue">
-            <div class="question">
-                <div class="votes">
-                    <div class="upvote" onclick="sendInfo(<%= rs1.getString(4)%>)"></div>
-                    <div class="number-of-votes" id="voting<%= rs1.getString(4)%>" data-value="<%= a%>"><%= a%></div>
-                    <div class="downvote"></div>
-                </div>
-                <div class="question-and-answer">
-                    <div id="answer<%=rs1.getString(4)%>">
-                        <h2 style="font-size: 18px"><%= rs1.getString(1)%></h2>
-                        <h6 style="position: relative; left: 800px">By : <%= rs1.getString(2)%></h6>
-                        <h6 style="position: relative; left: 800px">On : <%= rs1.getString(3)%></h6>
+        <%
+            do {
+                String a;
+                PreparedStatement v = con.prepareStatement("Select Count(vote) from votes where Answer_Id=" + rs1.getString(4));
+                ResultSet vote = v.executeQuery();
+                if (vote.next()) {
+                    a = vote.getString(1);
+                } else {
+                    a = "0";
+                }
+
+                String Done;
+                PreparedStatement accept = con.prepareStatement("Select * from Questions where Question_Id = " + Id + " and Accepted_Answer = " + rs1.getString(4));
+                ResultSet acc = accept.executeQuery();
+                if (acc.next()) {
+                    Done = "Accepted";
+                } else {
+                    Done = "";
+                }
+        %>  
+        <div style="text-decoration: underline ;position: relative; left : 35px ; top : 75px ; width : 150px; height : 30px;color: red;  cursor: pointer; font-size: 22px" id="Accept<%= rs1.getString(4)%>"> <%= Done%> </div>
+        <div class="vue-wrapper">
+            <div id="vue">
+                <div class="question">
+                    <div class="votes">
+                        <div class="upvote" onclick="sendInfo(<%= rs1.getString(4)%>)"></div>
+                        <div class="number-of-votes" id="voting<%= rs1.getString(4)%>" data-value="<%= a%>"><%= a%></div>
+                        <div class="downvote"></div>
+                    </div>
+                    <div class="question-and-answer">
+                        <div id="answer<%=rs1.getString(4)%>">
+                            <h2 style="font-size: 18px"><%= rs1.getString(1)%></h2>
+                            <h6 style="position: relative; left: 800px">By : <%= rs1.getString(2)%></h6>
+                            <h6 style="position: relative; left: 800px">On : <%= rs1.getString(3)%></h6>
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
-    </div>
     </div>
     <%
         } while (rs1.next());
@@ -215,41 +214,41 @@
             System.out.println(e);
         }
     %>
-    <div id="last" style="visibility: hidden">
-        <div class="vue-wrapper">
-        <div id="vue">
-            <div class="question">
-                <div class="votes">
-                    <div class="upvote" onclick="alerts()"></div>
-                    <div class="number-of-votes">0</div>
-                    <div class="downvote" onclick="alerts()"></div>
-                </div>
-                <div class="question-and-answer">
-                    <div id="answer">
-                        <h2 style="font-size: 18px" id="unique"></h2>
-                        <h6 style="position: relative; left: 800px">By : <%=session.getAttribute("UserId") %></h6>
-                        <h6 style="position: relative; left: 800px">On : Today</h6>
+    <!--    <div id="last" style="visibility: hidden">
+            <div class="vue-wrapper">
+            <div id="vue">
+                <div class="question">
+                    <div class="votes">
+                        <div class="upvote" onclick="alerts()"></div>
+                        <div class="number-of-votes">0</div>
+                        <div class="downvote" onclick="alerts()"></div>
+                    </div>
+                    <div class="question-and-answer">
+                        <div id="answer">
+                            <h2 style="font-size: 18px" id="unique"></h2>
+                            <h6 style="position: relative; left: 800px">By : </h6>
+                            <h6 style="position: relative; left: 800px">On : Today</h6>
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
-    </div>
-    </div>
+        </div>-->
     <br />
     <h4 style="position: relative; left: 170px; font-size: 30px; text-decoration: underline; color: goldenrod">Give Your Answer Here..</h4>
     <br />
     <br />
-<!--    <form>-->
+    <form method="POST" action="Answer.jsp">
         <div class="vue-wrapper">
             <div id="vue">
                 <div class="search-area">
                     <div class="input-wrapper">
-                        <textarea v-model="searchString" type="text" placeholder="Answer Here." id="answer" rows="15" cols="120" name="Answer" required="required"></textarea>
+                        <textarea v-model="searchString" type="text" placeholder="Answer Here." rows="15" cols="120" name="Answer" required="required"></textarea>
                     </div>
                 </div>
-                <center><button type="submit" onclick="insert()">Answer</button></center>
+                <center><button type="submit">Answer</button></center>
             </div>
         </div>
-<!--    </form>-->
+    </form>
 </body>
 </html>

@@ -16,22 +16,22 @@
             PreparedStatement pst = null;
             ResultSet rs = null;
             try {
-                System.out.println("Here Also");
+                System.out.println("Here Also Answer.jsp");
                 Class.forName("org.apache.derby.jdbc.ClientDriver");
                 con = DriverManager.getConnection("jdbc:derby://localhost:1527/Love_To_Learn", "Mohammed_Numan", "mohammed");
-//                String Id = request.getParameter("Id");
                 String sql;
                 sql = "Select MAX(Answer_ID) from Answers";
                 pst = con.prepareStatement(sql);
                 rs = pst.executeQuery();
                 rs.next();
-                System.out.println("Came here");
+                System.out.println("Came here In Answer.jsp");
                 String id = rs.getString(1);
                 if (id == null) {
                     id = "0";
                 }
                 Integer a = Integer.parseInt(id);
                 a++;
+                System.out.println("It came Here Numan....!");
                 sql = "Insert into Answers Values(?,?,?,?,?)";
                 pst = con.prepareStatement(sql);
                 pst.setInt(1, a);
@@ -42,8 +42,7 @@
                 int x = pst.executeUpdate();
                 
                 if(x == 1){
-                    response.setContentType("text/plain");
-                    response.getWriter().write("Done");
+                    response.sendRedirect("Details.jsp?Id="+session.getAttribute("Question_Id").toString());
                 }
                 else{
                     response.getWriter().write("Not Done");
