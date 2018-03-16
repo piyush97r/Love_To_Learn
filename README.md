@@ -4,7 +4,7 @@ Project on Database Management System(DBMS).A question answering website(Similar
 Jdbc and jsp used as backend.<br>
 Html,Css,Javascript is used as frontend.<br>
 Derby Database is used as database(in netbeans).<br>
-Glassfish server is used.<br>
+Glassfish server.<br>
 Netbeans IDE.
 ### Prerequisites
 Assuming you have jdk installed.
