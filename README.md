@@ -15,7 +15,7 @@ After the IDE is installed.Download/clone the project<br>
 Goto netbeans.Open the project.<br>
 Create an empty directory as Web-Inf.<br>
 Create a database and change the name and password(in the JSP pages) to the name and password used.<br>
-Run the .sql to create the tables.
+Run the .sql file to create the tables.
 Now run the project(GlassFish server should be install with netbeans) And the project is ready.
 
 ## Authors
