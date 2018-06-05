@@ -1,6 +1,6 @@
 create table Qcomments(Question_Id Integer, User_Id Integer, Comment Varchar(400), Foreign Key(Question_Id) references Question(Question_Id), Foreign Key(User_Id) references Users(User_Id));
 
-Create Table Intrests(User_Id Integer, Intrest Varchar(40),points varchar(20) Foreign Key(User_Id) references Users(User_Id));
+Create Table Intrests(User_Id Integer, Intrest Varchar(40),points varchar(20), Foreign Key(User_Id) references Users(User_Id));
 
 create table Answers(Answer_Id Integer Primary Key, Question_Id Integer, User_Id Integer, Answer Varchar(200), Foreign Key(Question_Id) references Questions(Question_Id) ON DELETE CASCADE, Foreign Key(User_Id) references Users(User_Id) ON DELETE CASCADE);
 
