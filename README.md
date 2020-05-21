@@ -9,7 +9,7 @@ Netbeans IDE.
 ### Prerequisites
 Assuming you have jdk installed.
 ### Installing
-* [Netbeans](https://netbeans.org/downloads/) - The IDE used(Install the one with all the packages).<br>
+* [Netbeans](https://netbeans.org/downloads/8.2/rc/start.html?platform=windows&lang=en&option=all) - The IDE used(Install the one with all the packages).<br>
 
 After the IDE is installed.Download/clone the project<br>
 Goto netbeans.Open the project.<br>
