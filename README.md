@@ -1,7 +1,7 @@
 # Love_To_Learn
 Project on Database Management System(DBMS).A question answering website(Similar to Stack Overflow)
 ## Tools used
-Jdbc and jsp used as backend.<br>
+Jdbc and JSP used as backend.<br>
 Html,Css,Javascript is used as frontend.<br>
 Derby Database is used as database(in netbeans).<br>
 Glassfish server.<br>
